@@ -34,11 +34,13 @@ public class Engine implements TurnListener
             {
                 tile.putX();
                 state[tile.getID()] = State.X;
+                tile.setState(State.X);
             }
             else
             {
                 tile.putO();
                 state[tile.getID()] = State.O;
+                tile.setState(State.O);
             }
             Result result = getResult(player);
             if (result == Result.PENDING)
@@ -51,12 +53,12 @@ public class Engine implements TurnListener
             if (result == Result.END)
             {
                 message = player + " wins!";
-                optionPane = new JOptionPane(message, JOptionPane.INFORMATION_MESSAGE, JOptionPane.OK_OPTION, CHECKED);
+                optionPane = new JOptionPane(message, JOptionPane.INFORMATION_MESSAGE, JOptionPane.DEFAULT_OPTION, CHECKED);
             }
             else
             {
                 message = "Draw!";
-                optionPane = new JOptionPane(message, JOptionPane.INFORMATION_MESSAGE, JOptionPane.OK_OPTION);
+                optionPane = new JOptionPane(message, JOptionPane.INFORMATION_MESSAGE, JOptionPane.DEFAULT_OPTION);
             }
             JDialog dialog = optionPane.createDialog("Alert!");
             dialog.setAlwaysOnTop(true); // to show top of all other application

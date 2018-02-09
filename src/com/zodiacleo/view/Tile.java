@@ -84,6 +84,11 @@ public class Tile extends JPanel implements MouseListener
         return id;
     }
     
+    public void setState(State state)
+    {
+        this.state = state;
+    }
+    
     public State getState()
     {
         return state;
